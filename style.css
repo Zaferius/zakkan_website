@@ -1,0 +1,758 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #0f1115;
+  color: #c9cdd6;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video, iframe {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --bg:          #0f1115;
+  --bg-card:     #161a21;
+  --bg-card-hover: #1c2029;
+  --border:      #252a34;
+  --border-hover:#353d4d;
+  --text-primary: #e8eaf0;
+  --text-secondary: #8b909e;
+  --text-muted:  #555b6a;
+  --accent:      #c8860a;       /* single, restrained accent */
+  --accent-dim:  rgba(200,134,10,.12);
+  --radius:      12px;
+  --radius-sm:   6px;
+  --transition:  0.22s ease;
+  --shadow:      0 4px 24px rgba(0,0,0,.45);
+  --shadow-card: 0 2px 16px rgba(0,0,0,.35);
+  --max-w:       860px;
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section {
+  padding-block: 56px;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.section__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.section__title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-block: 18px;
+  background: rgba(15, 17, 21, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.nav.scrolled {
+  border-bottom-color: var(--border);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+}
+
+.nav__logo:hover {
+  color: var(--accent);
+}
+
+.nav__links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav__links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--transition);
+}
+
+.nav__links a:hover,
+.nav__links a.active {
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 64px;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.hero__text {
+  flex: 1;
+}
+
+.hero__gif {
+  flex-shrink: 0;
+  width: clamp(90px, 10vw, 150px);
+}
+
+.hero__gif img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.hero__gif img:hover {
+  filter:
+    drop-shadow(0 0 6px rgba(200, 134, 10, 0.7))
+    drop-shadow(0 0 18px rgba(200, 134, 10, 0.35));
+}
+
+/* Profile image */
+.hero__avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+
+.hero__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text block */
+.hero__eyebrow {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.hero__name {
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.hero__title {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.hero__desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin-bottom: 32px;
+  line-height: 1.75;
+}
+
+/* CTA buttons */
+.hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn--outline {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+.btn--outline:hover {
+  background: var(--accent-dim);
+}
+
+.btn--ghost {
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+.btn--ghost:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  background: rgba(255,255,255,.03);
+}
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+.about {
+  border-top: 1px solid var(--border);
+}
+
+.about__body p {
+  color: var(--text-secondary);
+  font-size: 0.975rem;
+  margin-bottom: 18px;
+  max-width: 680px;
+}
+
+.about__body p:last-of-type {
+  margin-bottom: 28px;
+}
+
+/* ============================================================
+   SKILL / PROJECT TAGS
+   ============================================================ */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   PROJECTS SECTION
+   ============================================================ */
+.projects {
+  border-top: 1px solid var(--border);
+}
+
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ============================================================
+   VIDEO SWITCHER (landscape project cards)
+   ============================================================ */
+
+/* Wrapper — just positions the nav bar over the video */
+.vswitcher {
+  position: relative;
+  background: #000;
+}
+
+/* Full-width 16:9 video — no wrapper tricks */
+.vswitcher__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Nav bar — prev / counter / next — sits at TOP of video */
+.vswitcher__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 14px;
+  background: linear-gradient(rgba(0,0,0,.55), transparent);
+}
+
+.vswitcher__btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+}
+
+.vswitcher__btn:hover {
+  background: rgba(0,0,0,.9);
+}
+
+.vswitcher__counter {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,.8);
+  font-weight: 500;
+  min-width: 32px;
+  text-align: center;
+}
+
+/* ── Sub-label between landscape and portrait groups ── */
+.projects__sub-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 72px;
+  margin-bottom: 28px;
+}
+
+/* ── Portrait / Mobile grid — 3 columns, large videos ── */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Project Card (shared) ── */
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.project-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+/* 16:9 landscape video wrapper */
+.project-card__media--landscape {
+  position: relative;
+  width: 100%;
+  background: #0a0c10;
+  overflow: visible;
+}
+
+/* 9:16 portrait video wrapper — fixed height so video is large and watchable */
+.project-card__media--portrait {
+  position: relative;
+  width: 100%;
+  height: 780px;
+  background: #0a0c10;
+  overflow: hidden;
+}
+
+/* fallback for cards without modifier (backward compat) */
+.project-card__media {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #0a0c10;
+}
+
+.project-card__media iframe,
+.project-card__media video,
+.project-card__media--landscape iframe,
+.project-card__media--landscape video,
+.project-card__media--portrait iframe,
+.project-card__media--portrait video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Portrait videos fill the frame — no black bars */
+.project-card__media--portrait video {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Expand button on portrait cards ── */
+.expand-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition), background var(--transition);
+}
+
+.project-card__media--portrait:hover .expand-btn {
+  opacity: 1;
+}
+
+.expand-btn:hover {
+  background: rgba(0,0,0,.85);
+}
+
+/* ============================================================
+   VIDEO OVERLAY MODAL
+   ============================================================ */
+.video-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-overlay.active {
+  display: flex;
+}
+
+.video-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  cursor: pointer;
+}
+
+.video-overlay__frame {
+  position: relative;
+  z-index: 1;
+  /* 9:16 portrait — tall and narrow, max 90vh height */
+  height: 90vh;
+  width: calc(90vh * 9 / 16);
+  max-width: 96vw;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 24px 80px rgba(0,0,0,.7);
+}
+
+.video-overlay__video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.video-overlay__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+}
+
+.video-overlay__close:hover {
+  background: rgba(0,0,0,.9);
+}
+
+/* Portrait card body — tighter padding since cards are narrower */
+.project-card--portrait .project-card__body {
+  padding: 16px 18px 20px;
+}
+
+.project-card--portrait .project-card__title {
+  font-size: 0.95rem;
+}
+
+.project-card--portrait .project-card__desc {
+  font-size: 0.82rem;
+  margin-bottom: 14px;
+}
+
+.project-card__body {
+  padding: 28px 32px 32px;
+}
+
+.project-card__title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.project-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ============================================================
+   FADE-IN ON SCROLL ANIMATION
+   ============================================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact {
+  border-top: 1px solid var(--border);
+}
+
+.contact__desc {
+  font-size: 0.975rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin-bottom: 36px;
+  line-height: 1.75;
+}
+
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: color var(--transition);
+  width: fit-content;
+}
+
+.contact__link:hover {
+  color: var(--text-primary);
+}
+
+.contact__link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+
+.contact__link:hover .contact__link-icon {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  border-top: 1px solid var(--border);
+  padding-block: 28px;
+}
+
+.footer p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET & MOBILE
+   ============================================================ */
+
+/* Tablet: 2 columns */
+@media (max-width: 900px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .project-card__media--portrait {
+    height: 560px;
+  }
+}
+
+/* Small tablet: 2 columns, shorter */
+@media (max-width: 600px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .project-card__media--portrait {
+    height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-block: 64px;
+  }
+
+  .nav__links {
+    gap: 20px;
+  }
+
+  .hero__name {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .project-card__body {
+    padding: 20px 20px 24px;
+  }
+
+  .hero__links {
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 9px 18px;
+  }
+
+  /* Mobile: portrait grid 1 column */
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+  .project-card__media--portrait {
+    height: 600px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav__links {
+    gap: 14px;
+  }
+
+  .nav__links a {
+    font-size: 0.8rem;
+  }
+}
