@@ -135,3 +135,31 @@ backdrop.addEventListener('click', closeOverlay);
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeOverlay();
 });
+
+/* ── File Sharing Modal ──
+   Clicking doom head opens file sharing modal.
+   ── */
+const fileModal = document.getElementById('fileModal');
+const fileModalClose = document.getElementById('fileModalClose');
+const fileModalBackdrop = fileModal.querySelector('.file-modal__backdrop');
+const doomHead = document.querySelector('.hero__gif');
+
+function openFileModal() {
+  fileModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFileModal() {
+  fileModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+doomHead.addEventListener('click', openFileModal);
+fileModalClose.addEventListener('click', closeFileModal);
+fileModalBackdrop.addEventListener('click', closeFileModal);
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && fileModal.classList.contains('active')) {
+    closeFileModal();
+  }
+});

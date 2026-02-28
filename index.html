@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="file-modal.css" />
 </head>
 <body>
 
@@ -399,6 +400,29 @@
     <div class="video-overlay__frame">
       <button class="video-overlay__close" id="overlayClose" aria-label="Close">&#x2715;</button>
       <video class="video-overlay__video" id="overlayVideo" controls></video>
+    </div>
+  </div>
+
+  <!-- ========== FILE SHARING MODAL ========== -->
+  <div class="file-modal" id="fileModal">
+    <div class="file-modal__backdrop"></div>
+    <div class="file-modal__content">
+      <div class="file-modal__header">
+        <h3>Files</h3>
+        <button class="file-modal__close" id="fileModalClose" aria-label="Close">&#x2715;</button>
+      </div>
+      <div class="file-modal__body">
+        <div class="file-list">
+          <a href="files/Deprem Anı ve Tahliye Tatbikatı - Okul.mp4" class="file-item" download>
+            <div class="file-item__icon">&#x1F4F9;</div>
+            <div class="file-item__info">
+              <span class="file-item__name">Deprem Anı ve Tahliye Tatbikatı - Okul.mp4</span>
+              <span class="file-item__size">10.4 MB</span>
+            </div>
+            <div class="file-item__action">&#x2B73;</div>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 

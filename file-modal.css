@@ -1,0 +1,159 @@
+/* ============================================================
+   FILE SHARING MODAL
+   ============================================================ */
+.file-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-modal.active {
+  display: flex;
+}
+
+.file-modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.9);
+  cursor: pointer;
+}
+
+.file-modal__content {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 90%;
+  max-width: 550px;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,.6);
+}
+
+.file-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.file-modal__header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.file-modal__close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-modal__close:hover {
+  color: var(--accent);
+}
+
+.file-modal__body {
+  padding: 24px;
+  max-height: calc(80vh - 80px);
+  overflow-y: auto;
+}
+
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.file-item:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+  transform: translateX(4px);
+}
+
+.file-item__icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.file-item__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.file-item__name {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.file-item__size {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.file-item__action {
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.file-item:hover .file-item__action {
+  transform: translateX(4px);
+}
+
+/* Scrollbar styling for modal body */
+.file-modal__body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.file-modal__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.file-modal__body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.file-modal__body::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
