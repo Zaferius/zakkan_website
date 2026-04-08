@@ -3,464 +3,325 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zafer AKKAN</title>
+  <title>ZAKKAN | SENIOR GAME DEVELOPER</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="file-modal.css" />
 </head>
 <body>
-
-  <!-- ========== NAVIGATION ========== -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner container">
-      <a href="#hero" class="nav__logo">ZAKKAN | IDDQD</a>
-      <ul class="nav__links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <div class="noise"></div>
+  
+  <nav class="nav">
+    <div class="nav-center">
+      <p>Zafer AKKAN</p>
+    </div>
+    <div class="nav-right">
+      <a href="mailto:akkanzafer@gmail.com" class="btn">Contact Me ↗</a>
+      <button class="logo-btn" id="doomTrigger">IDDQD.</button>
     </div>
   </nav>
 
-  <!-- ========== HERO SECTION ========== -->
-  <section class="hero" id="hero">
-    <div class="container hero__inner">
-
-      <div class="hero__text">
-        <p class="hero__eyebrow">Hello, I'm</p>
-        <h1 class="hero__name">Zafer AKKAN</h1>
-        <h2 class="hero__title">Senior Game Developer</h2>
-        <p class="hero__desc">
-          I design and build engaging gameplay systems, mobile games, and interactive prototypes.
-          Passionate about clean architecture, player experience, and shipping polished products.
-        </p>
-
-        <!-- ── EDIT: update href values with your real links ── -->
-        <div class="hero__links">
-          <a href="mailto:akkanzafer@gmail.com" class="btn btn--outline">Email Me</a>
-          <a href="https://www.linkedin.com/in/zaferakkan/" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
-          <a href="https://github.com/Zaferius" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
-        </div>
-      </div>
-
-      <div class="hero__gif">
-        <img src="doom.png" alt="Doom" />
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ========== PROJECTS SECTION ========== -->
-  <section class="projects section" id="projects">
-    <div class="container">
-      <h3 class="section__label">Work</h3>
-      <h2 class="section__title">Projects</h2>
-
-      <!-- ══════════════════════════════════════════════════
-           LANDSCAPE PROJECTS — tek kart, tam genişlik video.
-           Birden fazla video varsa data-videos listesi ile switcher çalışır.
-           Yeni video eklemek: data-videos dizisine src ekle.
-           ══════════════════════════════════════════════════ -->
-      <div class="projects__list">
-
-        <!-- ── PROJECT: The Last Frequency — 2 video ── -->
-        <article class="project-card fade-in">
-          <div class="vswitcher"
-               data-videos='["assets/videos/the-last-frequency/TLF_60FPS.mp4","assets/videos/the-last-frequency/TLF_HeavyRain_Test2_60FPS.mp4"]'>
-            <video class="vswitcher__video" controls preload="metadata">
-              <source src="assets/videos/the-last-frequency/TLF_60FPS.mp4" type="video/mp4" />
-            </video>
-            <div class="vswitcher__bar">
-              <button class="vswitcher__btn vswitcher__btn--prev">&#8249;</button>
-              <span class="vswitcher__counter"></span>
-              <button class="vswitcher__btn vswitcher__btn--next">&#8250;</button>
-            </div>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">The Last Frequency</h3>
-            <p class="project-card__desc">PC Game</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span><span class="tag">Prototype</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ── PROJECT: Scions ── -->
-        <article class="project-card fade-in">
-          <div class="vswitcher"
-               data-videos='["assets/videos/scions-battle-eternal/Scions_BattleTest5.mp4"]'>
-            <video class="vswitcher__video" controls preload="metadata">
-              <source src="assets/videos/scions-battle-eternal/Scions_BattleTest5.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Scions — Battle Test</h3>
-            <p class="project-card__desc">PC Game - https://store.steampowered.com/app/2198390/Scions_Battle_Eternal/</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span><span class="tag">Prototype</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ── PROJECT: Knightbane — 2 video ── -->
-        <article class="project-card fade-in">
-          <div class="vswitcher"
-               data-videos='["assets/videos/knightbane/Knightbane.mp4","assets/videos/knightbane/test14_newUI.mp4"]'>
-            <video class="vswitcher__video" controls preload="metadata">
-              <source src="assets/videos/knightbane/Knightbane.mp4" type="video/mp4" />
-            </video>
-            <div class="vswitcher__bar">
-              <button class="vswitcher__btn vswitcher__btn--prev">&#8249;</button>
-              <span class="vswitcher__counter"></span>
-              <button class="vswitcher__btn vswitcher__btn--next">&#8250;</button>
-            </div>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Knightbane</h3>
-            <p class="project-card__desc">PC Game</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span><span class="tag">Prototype</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ── PROJECT: Hellevator ── -->
-        <article class="project-card fade-in">
-          <div class="vswitcher"
-               data-videos='["assets/videos/hellevator/HellevatorTest4.mp4"]'>
-            <video class="vswitcher__video" controls preload="metadata">
-              <source src="assets/videos/hellevator/HellevatorTest4.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Hellevator</h3>
-            <p class="project-card__desc">PC Game</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span><span class="tag">Prototype</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ── PROJECT: No Asset Challenge — Grappler ── -->
-        <article class="project-card fade-in">
-          <div class="vswitcher"
-               data-videos='["assets/videos/NoAssetChallangeGrappler/NoAssetChallange_Grappler_3.mp4"]'>
-            <video class="vswitcher__video" controls preload="metadata">
-              <source src="assets/videos/NoAssetChallangeGrappler/NoAssetChallange_Grappler_3.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">No Asset Challenge — Grappler</h3>
-            <p class="project-card__desc">Asset Store System - https://assetstore.unity.com/packages/templates/systems/easy-grappler-2d-299528</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span><span class="tag">Prototype</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ── PROJECT: No Name Dungeon Crawler ── -->
-        <article class="project-card fade-in">
-          <div class="vswitcher"
-               data-videos='["assets/videos/NoNameDungeonCrawler/NoNameDungeonCrawler_Test2.mp4"]'>
-            <video class="vswitcher__video" controls preload="metadata">
-              <source src="assets/videos/NoNameDungeonCrawler/NoNameDungeonCrawler_Test2.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">No Name Dungeon Crawler</h3>
-            <p class="project-card__desc">1 Hour Game Challange</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span><span class="tag">Prototype</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ── PROJECT: Ascension ── -->
-        <article class="project-card fade-in">
-          <div class="vswitcher"
-               data-videos='["assets/videos/ascension/Ascension - Gameplay.mp4"]'>
-            <video class="vswitcher__video" controls preload="metadata">
-              <source src="assets/videos/ascension/Ascension - Gameplay.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Ascension</h3>
-            <p class="project-card__desc">PC Game</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span><span class="tag">Prototype</span>
-            </div>
-          </div>
-        </article>
-
-      </div><!-- /.projects__list -->
-
-      <!-- ══════════════════════════════════════════════════
-           MOBILE / PORTRAIT PROJECTS (V prefix) — grid layout, 9:16 video
-           ══════════════════════════════════════════════════ -->
-      <h3 class="projects__sub-label">Mobile Games</h3>
-      <div class="projects__grid">
-
-        <!-- ── EDIT: title, description, tags for each card ── -->
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/V3DBallControllerTemplate_Alpha1.mp4" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">3D Ball Controller</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VBasketStealer_Test4.m4v" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Basket Stealer</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VBounceman Gp 2.m4v" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Bounceman</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VCutRunner_Prototype.mp4" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Cut Runner</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VExtrafight - Tower.İo.m4v" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Extrafight — Tower.io</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VGrandGrinder3D.m4v" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Grand Grinder 3D</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VLaserminer3d Prot5.m4v" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Laser Miner 3D</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VObjectThrower_Alpha.mp4" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Object Thrower</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VShawarmaRunner_Test3.mp4" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Shawarma Runner</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VStickSurvivor_Test3.mp4" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">Stick Survivor</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card project-card--portrait fade-in">
-          <div class="project-card__media project-card__media--portrait">
-            <video controls controlsList="nofullscreen" preload="metadata">
-              <source src="assets/videos/VTS_v0.2.m4v" type="video/mp4" />
-            </video>
-            <button class="expand-btn" aria-label="Expand video">&#x26F6;</button>
-          </div>
-          <div class="project-card__body">
-            <h3 class="project-card__title">VTS</h3>
-            <p class="project-card__desc">Project description — edit this text.</p>
-            <div class="project-card__tags">
-              <span class="tag">Unity</span>
-              <span class="tag">Mobile</span>
-            </div>
-          </div>
-        </article>
-
-      </div><!-- /.projects__grid (portrait) -->
-    </div>
-  </section>
-
-  <!-- ========== VIDEO OVERLAY MODAL ========== -->
-  <div class="video-overlay" id="videoOverlay">
-    <div class="video-overlay__backdrop"></div>
-    <div class="video-overlay__frame">
-      <button class="video-overlay__close" id="overlayClose" aria-label="Close">&#x2715;</button>
-      <video class="video-overlay__video" id="overlayVideo" controls></video>
-    </div>
+  <div class="doom-overlay" id="doomOverlay">
+    <div class="doom-close">✕</div>
+    <video id="doomVideo" class="doom-video" src="doom.mp4"></video>
   </div>
 
-  <!-- ========== FILE SHARING MODAL ========== -->
-  <div class="file-modal" id="fileModal">
-    <div class="file-modal__backdrop"></div>
-    <div class="file-modal__content">
-      <div class="file-modal__header">
-        <h3>Files</h3>
-        <button class="file-modal__close" id="fileModalClose" aria-label="Close">&#x2715;</button>
-      </div>
-      <div class="file-modal__body">
-        <div class="file-list">
-          <a href="files/Deprem Anı ve Tahliye Tatbikatı - Okul.mp4" class="file-item" download>
-            <div class="file-item__icon">&#x1F4F9;</div>
-            <div class="file-item__info">
-              <span class="file-item__name">Deprem Anı ve Tahliye Tatbikatı - Okul.mp4</span>
-              <span class="file-item__size">10.4 MB</span>
-            </div>
-            <div class="file-item__action">&#x2B73;</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <header class="hero">
+    <h1 class="hero-title">
+      <span class="line">BUILDING APPS</span>
+      <span class="line">WITH NO</span>
+      <span class="line">LIMITS</span>
+    </h1>
+  </header>
 
-  <!-- ========== CONTACT SECTION ========== -->
-  <section class="contact section" id="contact">
-    <div class="container contact__inner">
-      <h3 class="section__label">Get in Touch</h3>
-      <h2 class="section__title">Contact</h2>
-      <p class="contact__desc">
-        Open to new opportunities, collaborations, and interesting projects.
-        Feel free to reach out through any of the channels below.
-      </p>
-
-      <!-- ── EDIT: update links ── -->
-      <div class="contact__links">
-        <a href="mailto:akkanzafer@gmail.com" class="contact__link">
-          <span class="contact__link-icon">✉</span>
-          akkanzafer@gmail.com
-        </a>
-        <a href="https://www.linkedin.com/in/zaferakkan/" target="_blank" rel="noopener" class="contact__link">
-          <span class="contact__link-icon">in</span>
-          linkedin.com/in/zaferakkan
-        </a>
-        <a href="https://github.com/Zaferius" target="_blank" rel="noopener" class="contact__link">
-          <span class="contact__link-icon">gh</span>
-          github.com/Zaferius
-        </a>
+  <section class="projects" id="projects">
+    <p class="section-label">PROJECTS</p>
+    
+    <div class="project-list">
+      
+      <div class="project-item" 
+           data-videos='["assets/videos/the-last-frequency/TLF_60FPS.mp4","assets/videos/the-last-frequency/TLF_HeavyRain_Test2_60FPS.mp4"]'
+           data-title="THE LAST FREQUENCY"
+           data-desc="A dark, atmospheric PC game focusing on environmental storytelling and immersive audio. Experience a haunting journey through unknown frequencies.">
+        <span class="num">001</span>
+        <h2>THE LAST FREQUENCY</h2>
       </div>
+
+      <div class="project-item" 
+           data-videos='["assets/videos/scions-battle-eternal/Scions_BattleTest5.mp4"]'
+           data-title="SCIONS | BATTLE ETERNAL"
+           data-desc="Fast-paced arena combat with deep progression systems. Engage in eternal battles with unique character classes and strategic depth.">
+        <span class="num">002</span>
+        <h2>SCIONS | BATTLE ETERNAL</h2>
+      </div>
+
+      <div class="project-item" 
+           data-videos='["assets/videos/knightbane/Knightbane.mp4","assets/videos/knightbane/test14_newUI.mp4"]'
+           data-title="KNIGHTBANE"
+           data-desc="An action-RPG prototype featuring challenging combat mechanics and a grim-dark aesthetic. Master the blade in a world consumed by shadow.">
+        <span class="num">003</span>
+        <h2>KNIGHTBANE</h2>
+      </div>
+
+      <div class="project-item" 
+           data-videos='["assets/videos/hellevator/HellevatorTest4.mp4"]'
+           data-title="HELLEVATOR"
+           data-desc="A vertical dungeon crawler where every floor brings new horrors. Survive the descent or become part of the elevator's history.">
+        <span class="num">004</span>
+        <h2>HELLEVATOR</h2>
+      </div>
+
+      <div class="project-item" 
+           data-videos='["assets/videos/NoAssetChallangeGrappler/NoAssetChallange_Grappler_3.mp4"]'
+           data-title="EASY GRAPPLER 2D"
+           data-desc="A high-performance 2D physics-based grappling system. Created as part of a technical challenge to showcase efficient movement mechanics.">
+        <span class="num">005</span>
+        <h2>EASY GRAPPLER 2D</h2>
+      </div>
+
+      <div class="project-item" 
+           data-videos='["assets/videos/ascension/Ascension - Gameplay.mp4"]'
+           data-title="ASCENSION"
+           data-desc="Explore vertical worlds in this platforming adventure. Reach the peak through precision movement and environmental puzzle-solving.">
+        <span class="num">006</span>
+        <h2>ASCENSION</h2>
+      </div>
+
+      <div class="project-item project-item--mobile" 
+           data-type="mobile-grid"
+           data-title="MOBILE GAMES"
+           data-desc="A collection of mobile prototypes and games. Featuring various genres from hyper-casual to action-adventure, all built with Unity.">
+        <span class="num">007</span>
+        <h2>MOBILE GAMES</h2>
+      </div>
+
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
   <footer class="footer">
-    <div class="container">
-      <p>© <span id="year"></span> Zafer AKKAN. Built with care.</p>
+    <div class="footer-links">
+      <a href="https://github.com/Zaferius" target="_blank">GITHUB</a>
+      <a href="https://www.linkedin.com/in/zaferakkan/" target="_blank">LINKEDIN</a>
     </div>
+    <p>© 2026 ZAFER AKKAN</p>
   </footer>
 
-  <script src="script.js"></script>
+  <div class="video-modal" id="videoModal">
+    <div class="modal-close">✕</div>
+    <div class="modal-content">
+      
+      <div class="modal-info">
+        <h3 id="modalTitle">PROJECT TITLE</h3>
+        <p id="modalDesc">Project description goes here with some placeholder text about the game mechanics and development process.</p>
+        <div class="modal-nav">
+          <button class="modal-btn" id="prevVideo">← PREV</button>
+          <span id="videoCounter">1 / 1</span>
+          <button class="modal-btn" id="nextVideo">NEXT →</button>
+        </div>
+      </div>
+
+      <div class="modal-video-wrapper">
+        <video class="modal-video" id="modalVideo" controls></video>
+        <div class="mobile-grid" id="mobileGrid">
+          <!-- Mobile carousel will be injected here -->
+          <div class="carousel-container">
+            <button class="carousel-btn prev" id="mobilePrev">←</button>
+            <div class="carousel-track-container">
+              <div class="carousel-track" id="mobileTrack">
+                <div class="carousel-item" data-color="#ff4500"><video src="assets/videos/V3DBallControllerTemplate_Alpha1.mp4" loop muted></video></div>
+                <div class="carousel-item" data-color="#ffd700"><video src="assets/videos/VBasketStealer_Test4.m4v" loop muted></video></div>
+                <div class="carousel-item" data-color="#00ff00"><video src="assets/videos/VBounceman Gp 2.m4v" loop muted></video></div>
+                <div class="carousel-item" data-color="#00ced1"><video src="assets/videos/VCutRunner_Prototype.mp4" loop muted></video></div>
+                <div class="carousel-item" data-color="#ff00ff"><video src="assets/videos/VExtrafight - Tower.İo.m4v" loop muted></video></div>
+                <div class="carousel-item" data-color="#ff8c00"><video src="assets/videos/VGrandGrinder3D.m4v" loop muted></video></div>
+                <div class="carousel-item" data-color="#7cfc00"><video src="assets/videos/VLaserminer3d Prot5.m4v" loop muted></video></div>
+                <div class="carousel-item" data-color="#1e90ff"><video src="assets/videos/VObjectThrower_Alpha.mp4" loop muted></video></div>
+                <div class="carousel-item" data-color="#ff1493"><video src="assets/videos/VShawarmaRunner_Test3.mp4" loop muted></video></div>
+                <div class="carousel-item" data-color="#adff2f"><video src="assets/videos/VStickSurvivor_Test3.mp4" loop muted></video></div>
+                <div class="carousel-item" data-color="#ff0000"><video src="assets/videos/VTS_v0.2.m4v" loop muted></video></div>
+              </div>
+            </div>
+            <button class="carousel-btn next" id="mobileNext">→</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.project-item');
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const closeBtn = document.querySelector('.modal-close');
+    const prevBtn = document.getElementById('prevVideo');
+    const nextBtn = document.getElementById('nextVideo');
+    const counter = document.getElementById('videoCounter');
+    const mobileGrid = document.getElementById('mobileGrid');
+    const mobileTrack = document.getElementById('mobileTrack');
+    const mobilePrev = document.getElementById('mobilePrev');
+    const mobileNext = document.getElementById('mobileNext');
+
+    let currentVideos = [];
+    let currentIndex = 0;
+    let mobileIndex = 0;
+
+    function updateMobileCarousel() {
+      const items = document.querySelectorAll('.carousel-item');
+      items.forEach((item, index) => {
+        item.classList.remove('active', 'prev', 'next');
+        const video = item.querySelector('video');
+        video.pause();
+        
+        if (index === mobileIndex) {
+          item.classList.add('active');
+          const color = item.getAttribute('data-color') || '#ff0000';
+          item.style.setProperty('--glow-color', color);
+          video.play();
+        } else if (index === (mobileIndex - 1 + items.length) % items.length) {
+          item.classList.add('prev');
+        } else if (index === (mobileIndex + 1) % items.length) {
+          item.classList.add('next');
+        }
+      });
+      
+      const offset = -mobileIndex * 100;
+      // mobileTrack.style.transform = `translateX(${offset}%)`; // We use classes for positioning now
+    }
+
+    mobilePrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const items = document.querySelectorAll('.carousel-item');
+      mobileIndex = (mobileIndex - 1 + items.length) % items.length;
+      updateMobileCarousel();
+    });
+
+    mobileNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const items = document.querySelectorAll('.carousel-item');
+      mobileIndex = (mobileIndex + 1) % items.length;
+      updateMobileCarousel();
+    });
+
+    function updateModal() {
+      if (currentVideos.length > 0) {
+        modalVideo.style.display = 'block';
+        mobileGrid.style.display = 'none';
+        modalVideo.src = currentVideos[currentIndex];
+        modalVideo.play();
+        counter.innerText = `${currentIndex + 1} / ${currentVideos.length}`;
+        
+        if (currentVideos.length > 1) {
+          document.querySelector('.modal-nav').style.display = 'flex';
+        } else {
+          document.querySelector('.modal-nav').style.display = 'none';
+        }
+      }
+    }
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const videosData = item.getAttribute('data-videos');
+        const title = item.getAttribute('data-title');
+        const desc = item.getAttribute('data-desc');
+        const type = item.getAttribute('data-type');
+
+        modalTitle.innerText = title;
+        modalDesc.innerText = desc;
+
+        if (type === 'mobile-grid') {
+          modalVideo.style.display = 'none';
+          mobileGrid.style.display = 'block';
+          document.querySelector('.modal-nav').style.display = 'none';
+          mobileIndex = 0;
+          updateMobileCarousel();
+          modal.classList.add('active');
+        } else if (videosData) {
+          currentVideos = JSON.parse(videosData);
+          currentIndex = 0;
+          updateModal();
+          modal.classList.add('active');
+        }
+      });
+      
+      item.addEventListener('mouseenter', () => {
+        document.body.style.backgroundColor = '#111';
+      });
+      item.addEventListener('mouseleave', () => {
+        document.body.style.backgroundColor = '#0b0c0e';
+      });
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + currentVideos.length) % currentVideos.length;
+      updateModal();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % currentVideos.length;
+      updateModal();
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modalVideo.pause();
+      modalVideo.src = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) {
+        modal.classList.remove('active');
+        modalVideo.pause();
+        modalVideo.src = '';
+      }
+    });
+
+    // DOOM Easter Egg
+    const doomTrigger = document.getElementById('doomTrigger');
+    const doomOverlay = document.getElementById('doomOverlay');
+    const doomVideo = document.getElementById('doomVideo');
+    const doomClose = document.querySelector('.doom-close');
+
+    doomTrigger.addEventListener('click', () => {
+      // Fast Glitch Effect
+      document.body.classList.add('glitch-active');
+      
+      setTimeout(() => {
+        document.body.classList.remove('glitch-active');
+        doomOverlay.classList.add('active');
+        doomVideo.play();
+      }, 200); // Sadece 200ms glitch, neredeyse anında video
+    });
+
+    doomClose.addEventListener('click', () => {
+      doomOverlay.classList.remove('active');
+      doomVideo.pause();
+      doomVideo.currentTime = 0;
+    });
+
+    doomOverlay.addEventListener('click', (e) => {
+      if(e.target === doomOverlay) {
+        doomOverlay.classList.remove('active');
+        doomVideo.pause();
+        doomVideo.currentTime = 0;
+      }
+    });
+
+    // Simple scroll animation for lines
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      const lines = document.querySelectorAll('.line');
+      if (lines.length > 0) {
+        lines[0].style.transform = `translateX(${scrollPos * 0.1}px)`;
+        lines[1].style.transform = `translateX(${-scrollPos * 0.15}px)`;
+        lines[2].style.transform = `translateX(${scrollPos * 0.2}px)`;
+      }
+    });
+  </script>
 </body>
 </html>

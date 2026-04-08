@@ -1,49 +1,45 @@
 # Zafer AKKAN | Senior Game Developer Portfolio
 
-This repository contains the source code for my personal portfolio website, showcasing my work in game development, mobile gaming, and interactive prototypes.
+This repository contains the source code for my personal portfolio website, featuring a premium, brutalist-inspired design with advanced interactive elements.
 
 ## 🚀 Overview
 
-A modern, responsive portfolio website built with vanilla HTML, CSS, and JavaScript. It features a custom video switcher for project showcases, a dedicated section for mobile games, and a clean, "Doom-inspired" aesthetic (ZAKKAN | IDDQD).
+A high-end, responsive portfolio website built with modern web technologies. It features a dark aesthetic, bold typography, and cinematic project showcases tailored for a Senior Game Developer.
 
 ## ✨ Features
 
-- **Responsive Design:** Fully optimized for both desktop and mobile devices.
-- **Custom Video Switcher:** Showcase multiple gameplay videos for a single project with built-in navigation.
-- **Mobile Game Grid:** Dedicated layout for portrait-oriented mobile game showcases.
-- **Video Overlay Modal:** Seamless video viewing experience with a dark backdrop.
-- **File Sharing System:** Integrated file download modal for shared resources.
-- **Smooth Animations:** Fade-in effects and smooth transitions using CSS and JavaScript.
+- **Premium Brutalist Design:** A bold, dark-themed aesthetic with a focus on high-impact typography.
+- **Dynamic Hero Title:** Interactive "BUILDING APPS WITH NO LIMITS" headline with scroll-based parallax effects.
+- **Cinematic Project Showcase:** Side-by-side project information and video previews in a seamless modal experience.
+- **3D Mobile Game Carousel:** A specialized 3D carousel for mobile projects with depth effects and dynamic glow colors based on the project theme.
+- **IDDQD Easter Egg:** A hidden interaction that triggers a glitch effect and a fullscreen tribute to Doom.
+- **Responsive & Performance Focused:** Optimized for all devices with smooth CSS animations and efficient JavaScript.
+- **Noise Texture Overlay:** A subtle grain effect that adds a premium, analog feel to the digital experience.
 
 ## 🛠️ Tech Stack
 
-- **HTML5:** Semantic structure.
-- **CSS3:** Custom properties (variables), Flexbox, Grid, and animations.
-- **JavaScript (ES6+):** Custom video switcher logic, modal management, and intersection observers for animations.
+- **HTML5:** Semantic structure for optimal SEO and accessibility.
+- **CSS3:** Advanced layouts (Grid, Flexbox), custom properties (variables), 3D transforms, and keyframe animations.
+- **JavaScript (ES6+):** Custom logic for modal management, 3D carousel navigation, and interactive animations.
 
 ## 📂 Project Structure
 
-- `index.html`: Main entry point and site structure.
-- `style.css`: Primary stylesheet containing the design system and layout.
-- `file-modal.css`: Specialized styling for the file sharing modal.
-- `script.js`: Interactive logic, video management, and UI behavior.
+- `index.html`: Main entry point with the core structure and interactive logic.
+- `style.css`: Comprehensive design system, animations, and responsive layouts.
 - `assets/`: 
-  - `videos/`: Gameplay recordings and trailers.
-  - `img/`: (If applicable) Static images and icons.
+  - `videos/`: High-quality gameplay recordings and mobile prototypes.
+- `doom.mp4`: Source file for the interactive easter egg.
 
-## 🕹️ Notable Projects
+## 🕹️ Featured Projects
 
-Some of the projects showcased on this site include:
-- **The Last Frequency** (Unity, PC)
-- **Scions — Battle Eternal** (Unity, Steam)
-- **Knightbane** (Unity, PC)
-- **Hellevator** (Unity, PC)
-- **Easy Grappler 2D** (Unity Asset Store)
-- Various Mobile Prototypes (3D Ball Controller, Basket Stealer, etc.)
+The portfolio showcases a wide range of expertise:
+- **PC Games:** The Last Frequency, Scions, Knightbane, Hellevator, Ascension.
+- **Technical Tools:** Easy Grappler 2D (Unity Asset Store).
+- **Mobile Prototypes:** A dedicated collection of 11+ hyper-casual and action mobile games.
 
 ## 🌐 Live Demo
 
-You can view the live version of this portfolio at: [https://zaferius.github.io/zakkan_website/](https://zaferius.github.io/zakkan_website/) (Assuming GitHub Pages deployment).
+Experience the interactive portfolio at: [https://zaferakkan.com](https://zaferakkan.com)
 
 ## 📬 Contact
 
@@ -52,4 +48,4 @@ You can view the live version of this portfolio at: [https://zaferius.github.io/
 - **GitHub:** [github.com/Zaferius](https://github.com/Zaferius)
 
 ---
-© 2024 Zafer AKKAN. Built with care.
+© 2026 Zafer AKKAN. Engineered with precision.
