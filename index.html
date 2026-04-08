@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZAKKAN | SENIOR GAME DEVELOPER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ZAKKAN | SOFTWARE DEVELOPER</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -298,6 +298,15 @@
     const doomOverlay = document.getElementById('doomOverlay');
     const doomVideo = document.getElementById('doomVideo');
     const doomClose = document.querySelector('.doom-close');
+
+    // Gizlice butonu aktif et: Video tamamen hazır olana kadar tıklanamaz veya hover edilemez
+    doomVideo.addEventListener('canplaythrough', () => {
+      doomTrigger.classList.add('ready');
+    });
+    // Zaten önbellekteyse anında aktif et
+    if (doomVideo.readyState >= 3) {
+      doomTrigger.classList.add('ready');
+    }
 
     doomTrigger.addEventListener('click', () => {
       // Fast Glitch Effect

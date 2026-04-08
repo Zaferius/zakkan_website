@@ -97,6 +97,11 @@ body {
   cursor: pointer;
   padding: 0;
   transition: all 0.3s ease;
+  pointer-events: none; /* Disabled until video loads */
+}
+
+.logo-btn.ready {
+  pointer-events: auto;
 }
 
 .logo-btn:hover {
@@ -589,7 +594,7 @@ body {
     width: 100%;
     padding: 0 1rem;
     font-size: clamp(4rem, 22vw, 10rem); /* Fontu daha da büyüttüm */
-    line-height: 0.9;
+    line-height: 1.05; /* 0.9'dan 1.05'e çıkarıldı, satır arası açıldı */
   }
   /* Her kelimeyi ayrı satıra zorla */
   .hero-title .line {
