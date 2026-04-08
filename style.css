@@ -67,6 +67,19 @@ body {
   text-decoration: none;
   color: var(--text-color);
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-arrow {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .icon-arrow {
+  transform: translate(2px, -2px);
 }
 
 .btn:hover {
@@ -170,7 +183,7 @@ body {
 .hero-title {
   font-family: var(--font-main);
   font-size: clamp(4rem, 12vw, 15rem);
-  line-height: 0.85;
+  line-height: 0.95; /* 0.85'ten 0.95'e çıkarıldı, üst üste binmeyi engeller ama sıkı durur */
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -182,6 +195,24 @@ body {
 .hero-title .line {
   display: block;
   transition: transform 0.1s ease-out;
+}
+
+/* Visibility Control for Desktop vs Mobile */
+.mobile-line {
+  display: none !important;
+}
+.desktop-line {
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .desktop-line {
+    display: none !important;
+  }
+  .mobile-line {
+    display: block !important;
+    width: 100%;
+  }
 }
 
 .hero-center-box {
@@ -273,7 +304,7 @@ body {
 .project-item h2 {
   font-family: var(--font-main);
   font-size: clamp(3rem, 8vw, 10rem);
-  line-height: 0.85;
+  line-height: 0.95; /* 0.85'ten 0.95'e çıkarıldı */
   text-transform: uppercase;
   margin: 0;
   transition: color 0.3s ease;
@@ -529,4 +560,96 @@ body {
     top: 1rem;
     right: 1rem;
   }
+}
+
+@media (max-width: 768px) {
+  /* NAVIGATION */
+  .nav {
+    padding: 1.5rem 1rem;
+    align-items: center;
+  }
+  .nav-left p {
+    display: none; /* Mobilde yerden tasarruf için gizlendi */
+  }
+  .nav-right {
+    gap: 1rem;
+  }
+  .btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+  }
+  
+  /* HERO SECTION */
+  .hero {
+    padding-top: 15vh;
+  }
+  .hero-title {
+    align-items: flex-start; /* Mobilde sola yasla */
+    text-align: left;
+    width: 100%;
+    padding: 0 1rem;
+    font-size: clamp(4rem, 22vw, 10rem); /* Fontu daha da büyüttüm */
+    line-height: 0.9;
+  }
+  /* Her kelimeyi ayrı satıra zorla */
+  .hero-title .line {
+    width: 100%;
+  }
+  .hero-center-box {
+    margin-top: 2rem;
+    max-width: 90%;
+  }
+
+  /* PROJECTS */
+  .projects {
+    padding: 5rem 0;
+  }
+  .project-item {
+    padding: 1rem;
+    text-align: left;
+  }
+  .project-item h2 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    padding-left: 10%;
+  }
+  .project-item .num {
+    left: 2%;
+    top: 20%;
+    transform: none;
+  }
+
+  /* FOOTER */
+  .footer {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 2rem;
+    text-align: center;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .footer-links a {
+    margin-right: 0;
+  }
+
+  /* MODAL CAROUSEL FIXES */
+  .mobile-grid {
+    height: 400px;
+  }
+  .carousel-track-container {
+    width: 200px; /* Mobilde ana videoyu küçült */
+  }
+  .carousel-item {
+    height: 100%;
+  }
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .carousel-btn.prev { left: -10px; }
+  .carousel-btn.next { right: -10px; }
 }

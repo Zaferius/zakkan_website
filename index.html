@@ -17,7 +17,12 @@
       <p>Zafer AKKAN</p>
     </div>
     <div class="nav-right">
-      <a href="mailto:akkanzafer@gmail.com" class="btn">Contact Me ↗</a>
+      <a href="mailto:akkanzafer@gmail.com" class="btn">
+        Contact Me 
+        <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
       <button class="logo-btn" id="doomTrigger">IDDQD.</button>
     </div>
   </nav>
@@ -29,9 +34,16 @@
 
   <header class="hero">
     <h1 class="hero-title">
-      <span class="line">BUILDING APPS</span>
-      <span class="line">WITH NO</span>
-      <span class="line">LIMITS</span>
+      <!-- Desktop: 3 Lines -->
+      <span class="line desktop-line">BUILDING APPS</span>
+      <span class="line desktop-line">WITH NO</span>
+      <span class="line desktop-line">LIMITS</span>
+      
+      <!-- Mobile: 4 Lines -->
+      <span class="line mobile-line">BUILDING</span>
+      <span class="line mobile-line">APPS</span>
+      <span class="line mobile-line">WITH</span>
+      <span class="line mobile-line">NO LIMITS</span>
     </h1>
   </header>
 
@@ -315,12 +327,17 @@
     // Simple scroll animation for lines
     window.addEventListener('scroll', () => {
       const scrollPos = window.scrollY;
-      const lines = document.querySelectorAll('.line');
-      if (lines.length > 0) {
-        lines[0].style.transform = `translateX(${scrollPos * 0.1}px)`;
-        lines[1].style.transform = `translateX(${-scrollPos * 0.15}px)`;
-        lines[2].style.transform = `translateX(${scrollPos * 0.2}px)`;
-      }
+      const allLines = document.querySelectorAll('.hero-title .line');
+      
+      // Sadece görünür olan (display !== none) satırları seç
+      const visibleLines = Array.from(allLines).filter(line => 
+        window.getComputedStyle(line).display !== 'none'
+      );
+
+      visibleLines.forEach((line, index) => {
+        const speed = (index % 2 === 0) ? 0.1 : -0.15;
+        line.style.transform = `translateX(${scrollPos * speed}px)`;
+      });
     });
   </script>
 </body>

@@ -8,19 +8,20 @@ A high-end, responsive portfolio website built with modern web technologies. It 
 
 ## ✨ Features
 
-- **Premium Brutalist Design:** A bold, dark-themed aesthetic with a focus on high-impact typography.
-- **Dynamic Hero Title:** Interactive "BUILDING APPS WITH NO LIMITS" headline with scroll-based parallax effects.
+- **Premium Brutalist Design:** A bold, dark-themed aesthetic with a focus on high-impact typography and tight line heights (`0.95`) for a dense, blocky feel.
+- **Device-Specific Hero Layouts:** The "BUILDING APPS WITH NO LIMITS" headline adapts intelligently—presenting a balanced 3-line layout on desktop and a massive, snap-to-left 4-line layout on mobile.
 - **Cinematic Project Showcase:** Side-by-side project information and video previews in a seamless modal experience.
-- **3D Mobile Game Carousel:** A specialized 3D carousel for mobile projects with depth effects and dynamic glow colors based on the project theme.
-- **IDDQD Easter Egg:** A hidden interaction that triggers a glitch effect and a fullscreen tribute to Doom.
-- **Responsive & Performance Focused:** Optimized for all devices with smooth CSS animations and efficient JavaScript.
+- **3D Mobile Game Carousel:** A specialized 3D carousel for mobile projects with depth effects, smooth scaling, and dynamic glow colors based on the specific project.
+- **Advanced Mobile UX/UI:** Fully responsive typography using `clamp()`, SVG iconography to prevent cross-browser OS emoji overrides, and tailored padding/grids for smaller screens.
+- **IDDQD Easter Egg:** A hidden interaction that triggers a 0.1s rapid glitch effect and a fullscreen tribute to Doom.
 - **Noise Texture Overlay:** A subtle grain effect that adds a premium, analog feel to the digital experience.
 
 ## 🛠️ Tech Stack
 
-- **HTML5:** Semantic structure for optimal SEO and accessibility.
-- **CSS3:** Advanced layouts (Grid, Flexbox), custom properties (variables), 3D transforms, and keyframe animations.
-- **JavaScript (ES6+):** Custom logic for modal management, 3D carousel navigation, and interactive animations.
+- **HTML5:** Semantic structure with dedicated desktop/mobile DOM nodes for cleaner CSS management.
+- **CSS3:** Advanced layouts (Grid, Flexbox), fluid typography (`clamp`, `vw`), 3D transforms (`perspective`, `translateZ`), and keyframe animations.
+- **JavaScript (ES6+):** Custom logic for modal management, 3D carousel navigation, dynamic CSS variable assignment, and scroll-linked parallax animations.
+- **Deployment:** Configured for self-hosted deployment via Coolify using a custom `nixpacks.toml` build pipeline.
 
 ## 📂 Project Structure
 
