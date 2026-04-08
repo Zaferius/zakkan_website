@@ -2,7 +2,7 @@
   nixPkgs = ["nginx"]
 
 [phases.build]
-  cmds = ["mkdir -p dist && cp -r assets index.html script.js style.css file-modal.css doom-code.jpg doom.png CNAME dist/"]
+  cmds = ["mkdir -p dist && cp -r assets index.html style.css doom.mp4 doom.png CNAME dist/"]
 
 [static]
   directory = "dist"
