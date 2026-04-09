@@ -52,11 +52,42 @@
     
     <div class="project-list">
       
+      <div class="project-item project-item--yellow-glow" 
+           data-title="PYROART"
+           data-desc="Creative technology and software experiments under the PyroArt identity.">
+        <span class="num">001</span>
+        <h2>PYROART</h2>
+      </div>
+
+      <div class="project-item" 
+           data-link="https://www.pyroart.net/fuse"
+           data-title="FUSE"
+           data-desc="Visit FUSE on pyroart.net.">
+        <span class="num">002</span>
+        <h2>FUSE</h2>
+      </div>
+
+      <div class="project-item" 
+           data-link="https://www.pyroart.net/fuse/facephantom"
+           data-title="FACEPHANTOM"
+           data-desc="Visit FacePhantom on pyroart.net.">
+        <span class="num">003</span>
+        <h2>FACEPHANTOM</h2>
+      </div>
+
+      <div class="project-item project-item--rainbow-glow" 
+           data-link="https://www.pyroart.net/fuse/imageprism"
+           data-title="IMAGEPRISM"
+           data-desc="Visit ImagePrism on pyroart.net.">
+        <span class="num">004</span>
+        <h2>IMAGEPRISM</h2>
+      </div>
+
       <div class="project-item" 
            data-videos='["assets/videos/the-last-frequency/TLF_60FPS.mp4","assets/videos/the-last-frequency/TLF_HeavyRain_Test2_60FPS.mp4"]'
            data-title="THE LAST FREQUENCY"
            data-desc="A dark, atmospheric PC game focusing on environmental storytelling and immersive audio. Experience a haunting journey through unknown frequencies.">
-        <span class="num">001</span>
+        <span class="num">005</span>
         <h2>THE LAST FREQUENCY</h2>
       </div>
 
@@ -64,7 +95,7 @@
            data-videos='["assets/videos/scions-battle-eternal/Scions_BattleTest5.mp4"]'
            data-title="SCIONS | BATTLE ETERNAL"
            data-desc="Fast-paced arena combat with deep progression systems. Engage in eternal battles with unique character classes and strategic depth.">
-        <span class="num">002</span>
+        <span class="num">006</span>
         <h2>SCIONS | BATTLE ETERNAL</h2>
       </div>
 
@@ -72,7 +103,7 @@
            data-videos='["assets/videos/knightbane/Knightbane.mp4","assets/videos/knightbane/test14_newUI.mp4"]'
            data-title="KNIGHTBANE"
            data-desc="An action-RPG prototype featuring challenging combat mechanics and a grim-dark aesthetic. Master the blade in a world consumed by shadow.">
-        <span class="num">003</span>
+        <span class="num">007</span>
         <h2>KNIGHTBANE</h2>
       </div>
 
@@ -80,7 +111,7 @@
            data-videos='["assets/videos/hellevator/HellevatorTest4.mp4"]'
            data-title="HELLEVATOR"
            data-desc="A vertical dungeon crawler where every floor brings new horrors. Survive the descent or become part of the elevator's history.">
-        <span class="num">004</span>
+        <span class="num">008</span>
         <h2>HELLEVATOR</h2>
       </div>
 
@@ -88,7 +119,7 @@
            data-videos='["assets/videos/NoAssetChallangeGrappler/NoAssetChallange_Grappler_3.mp4"]'
            data-title="EASY GRAPPLER 2D"
            data-desc="A high-performance 2D physics-based grappling system. Created as part of a technical challenge to showcase efficient movement mechanics.">
-        <span class="num">005</span>
+        <span class="num">009</span>
         <h2>EASY GRAPPLER 2D</h2>
       </div>
 
@@ -96,7 +127,7 @@
            data-videos='["assets/videos/ascension/Ascension - Gameplay.mp4"]'
            data-title="ASCENSION"
            data-desc="Explore vertical worlds in this platforming adventure. Reach the peak through precision movement and environmental puzzle-solving.">
-        <span class="num">006</span>
+        <span class="num">010</span>
         <h2>ASCENSION</h2>
       </div>
 
@@ -104,7 +135,7 @@
            data-type="mobile-grid"
            data-title="MOBILE GAMES"
            data-desc="A collection of mobile prototypes and games. Featuring various genres from hyper-casual to action-adventure, all built with Unity.">
-        <span class="num">007</span>
+        <span class="num">011</span>
         <h2>MOBILE GAMES</h2>
       </div>
 
@@ -237,6 +268,7 @@
     items.forEach(item => {
       item.addEventListener('click', () => {
         const videosData = item.getAttribute('data-videos');
+        const link = item.getAttribute('data-link');
         const title = item.getAttribute('data-title');
         const desc = item.getAttribute('data-desc');
         const type = item.getAttribute('data-type');
@@ -244,7 +276,9 @@
         modalTitle.innerText = title;
         modalDesc.innerText = desc;
 
-        if (type === 'mobile-grid') {
+        if (link) {
+          window.open(link, '_blank', 'noopener,noreferrer');
+        } else if (type === 'mobile-grid') {
           modalVideo.style.display = 'none';
           mobileGrid.style.display = 'block';
           document.querySelector('.modal-nav').style.display = 'none';
