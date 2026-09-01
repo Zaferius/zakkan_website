@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>ZAKKAN | SOFTWARE DEVELOPER</title>
+  <title>ZAKKAN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -17,12 +17,12 @@
       <p>Zafer AKKAN</p>
     </div>
     <div class="nav-right">
-      <a href="mailto:akkanzafer@gmail.com" class="btn">
-        Contact Me 
+      <button class="btn contact-trigger" id="contactTrigger" type="button">
+        Contact Me
         <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      </a>
+      </button>
       <button class="logo-btn" id="doomTrigger">IDDQD.</button>
     </div>
   </nav>
@@ -88,7 +88,7 @@
            data-videos='["assets/videos/the-last-frequency/TLF_60FPS.mp4","assets/videos/the-last-frequency/TLF_HeavyRain_Test2_60FPS.mp4"]'
            data-title="THE LAST FREQUENCY"
            data-desc="A dark, atmospheric PC game focusing on environmental storytelling and immersive audio. Experience a haunting journey through unknown frequencies.">
-        <span class="num">005</span>
+        <span class="num">001</span>
         <h2>THE LAST FREQUENCY</h2>
       </div>
 
@@ -96,7 +96,7 @@
            data-videos='["assets/videos/scions-battle-eternal/Scions_BattleTest5.mp4"]'
            data-title="SCIONS | BATTLE ETERNAL"
            data-desc="Fast-paced arena combat with deep progression systems. Engage in eternal battles with unique character classes and strategic depth.">
-        <span class="num">006</span>
+        <span class="num">002</span>
         <h2>SCIONS | BATTLE ETERNAL</h2>
       </div>
 
@@ -104,7 +104,7 @@
            data-videos='["assets/videos/knightbane/Knightbane.mp4","assets/videos/knightbane/test14_newUI.mp4"]'
            data-title="KNIGHTBANE"
            data-desc="An action-RPG prototype featuring challenging combat mechanics and a grim-dark aesthetic. Master the blade in a world consumed by shadow.">
-        <span class="num">007</span>
+        <span class="num">003</span>
         <h2>KNIGHTBANE</h2>
       </div>
 
@@ -112,7 +112,7 @@
            data-videos='["assets/videos/hellevator/HellevatorTest4.mp4"]'
            data-title="HELLEVATOR"
            data-desc="A vertical dungeon crawler where every floor brings new horrors. Survive the descent or become part of the elevator's history.">
-        <span class="num">008</span>
+        <span class="num">004</span>
         <h2>HELLEVATOR</h2>
       </div>
 
@@ -120,7 +120,7 @@
            data-videos='["assets/videos/NoAssetChallangeGrappler/NoAssetChallange_Grappler_3.mp4"]'
            data-title="EASY GRAPPLER 2D"
            data-desc="A high-performance 2D physics-based grappling system. Created as part of a technical challenge to showcase efficient movement mechanics.">
-        <span class="num">009</span>
+        <span class="num">005</span>
         <h2>EASY GRAPPLER 2D</h2>
       </div>
 
@@ -128,7 +128,7 @@
            data-videos='["assets/videos/ascension/Ascension - Gameplay.mp4"]'
            data-title="ASCENSION"
            data-desc="Explore vertical worlds in this platforming adventure. Reach the peak through precision movement and environmental puzzle-solving.">
-        <span class="num">010</span>
+        <span class="num">006</span>
         <h2>ASCENSION</h2>
       </div>
 
@@ -136,7 +136,7 @@
            data-type="mobile-grid"
            data-title="MOBILE GAMES"
            data-desc="A collection of mobile prototypes and games. Featuring various genres from hyper-casual to action-adventure, all built with Unity.">
-        <span class="num">011</span>
+        <span class="num">007</span>
         <h2>MOBILE GAMES</h2>
       </div>
 
@@ -150,6 +150,26 @@
     </div>
     <p>© 2026 ZAFER AKKAN</p>
   </footer>
+
+  <div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="contact-modal-content" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+      <button class="contact-modal-close" id="contactModalClose" type="button" aria-label="Close contact window">✕</button>
+      <p class="contact-modal-kicker">GET IN TOUCH</p>
+      <h2 id="contactModalTitle">CONTACT ME</h2>
+      <p class="contact-modal-intro">Choose a channel and let’s build something precise.</p>
+      <div class="contact-links">
+        <a href="https://github.com/Zaferius" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <span>GITHUB</span><span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/zaferakkan/" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <span>LINKEDIN</span><span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="mailto:akkanzafer@gmail.com" class="contact-link">
+          <span>EMAIL</span><span class="contact-link-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <div class="video-modal" id="videoModal">
     <div class="modal-close">✕</div>
@@ -201,6 +221,9 @@
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
     const closeBtn = document.querySelector('.modal-close');
+    const contactTrigger = document.getElementById('contactTrigger');
+    const contactModal = document.getElementById('contactModal');
+    const contactModalClose = document.getElementById('contactModalClose');
     const prevBtn = document.getElementById('prevVideo');
     const nextBtn = document.getElementById('nextVideo');
     const counter = document.getElementById('videoCounter');
@@ -328,6 +351,22 @@
       }
     });
 
+    function closeContactModal() {
+      contactModal.classList.remove('active');
+      contactModal.setAttribute('aria-hidden', 'true');
+    }
+
+    contactTrigger.addEventListener('click', () => {
+      contactModal.classList.add('active');
+      contactModal.setAttribute('aria-hidden', 'false');
+      contactModalClose.focus();
+    });
+
+    contactModalClose.addEventListener('click', closeContactModal);
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) closeContactModal();
+    });
+
     // DOOM Easter Egg
     const doomTrigger = document.getElementById('doomTrigger');
     const doomOverlay = document.getElementById('doomOverlay');
@@ -365,6 +404,15 @@
         doomOverlay.classList.remove('active');
         doomVideo.pause();
         doomVideo.currentTime = 0;
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeContactModal();
+        modal.classList.remove('active');
+        modalVideo.pause();
+        modalVideo.src = '';
       }
     });
 
