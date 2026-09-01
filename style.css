@@ -2,6 +2,7 @@
   --bg-color: #0b0c0e;
   --text-color: #fce1e8; /* Soft pink from the reference image */
   --accent-color: #ffffff;
+  --ice-color: #c9f5ff;
   --font-main: 'Anton', sans-serif;
   --font-mono: 'Space Mono', monospace;
 }
@@ -187,7 +188,7 @@ body {
 
 .hero-title {
   font-family: var(--font-main);
-  font-size: clamp(4rem, 12vw, 15rem);
+  font-size: clamp(4rem, 10.5vw, 13rem);
   line-height: 0.95; /* 0.85'ten 0.95'e çıkarıldı, üst üste binmeyi engeller ama sıkı durur */
   text-transform: uppercase;
   display: flex;
@@ -316,13 +317,14 @@ body {
 }
 
 .project-item:hover h2 {
-  color: #ff0000;
-  text-shadow: 0 0 30px rgba(255,0,0,0.5);
+  color: var(--ice-color);
+  text-shadow: 0 0 18px rgba(170, 235, 255, 0.28), 0 0 42px rgba(110, 205, 240, 0.12);
 }
 
-.project-item--yellow-glow:hover h2 {
-  color: #ffd700;
-  text-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+.contact-trigger {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
 }
 
 /* FOOTER */
@@ -407,8 +409,112 @@ body {
   width: 100%;
   display: block;
   outline: none;
-  box-shadow: 0 0 50px rgba(255,0,0,0.15);
+  box-shadow: 0 0 50px rgba(170, 235, 255, 0.15);
   border-radius: 5px;
+}
+
+/* CONTACT MODAL */
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(5, 8, 10, 0.78);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.contact-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.contact-modal-content {
+  position: relative;
+  width: min(100%, 520px);
+  padding: clamp(2rem, 6vw, 4rem);
+  border: 1px solid rgba(201, 245, 255, 0.38);
+  background: rgba(11, 18, 22, 0.92);
+  box-shadow: 0 0 35px rgba(145, 225, 250, 0.12);
+  transform: translateY(16px);
+  transition: transform 0.3s ease;
+}
+
+.contact-modal.active .contact-modal-content {
+  transform: translateY(0);
+}
+
+.contact-modal-kicker {
+  color: var(--ice-color);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+
+.contact-modal-content h2 {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  font-size: clamp(3rem, 10vw, 5rem);
+  line-height: 0.9;
+  margin-bottom: 1rem;
+}
+
+.contact-modal-intro {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.72;
+  margin-bottom: 2rem;
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  border: 0;
+  background: transparent;
+  color: var(--text-color);
+  font: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-modal-close:hover {
+  color: var(--ice-color);
+  transform: rotate(90deg);
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(201, 245, 255, 0.18);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(201, 245, 255, 0.18);
+  color: var(--text-color);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease, padding-left 0.2s ease, text-shadow 0.2s ease;
+}
+
+.contact-link:hover {
+  padding-left: 0.5rem;
+  color: var(--ice-color);
+  text-shadow: 0 0 14px rgba(170, 235, 255, 0.35);
+}
+
+.contact-link-arrow {
+  color: var(--ice-color);
 }
 
 .mobile-grid {
@@ -598,7 +704,7 @@ body {
     text-align: left;
     width: 100%;
     padding: 0 1rem;
-    font-size: clamp(4rem, 22vw, 10rem); /* Fontu daha da büyüttüm */
+    font-size: clamp(4rem, 20vw, 9rem); /* Fontu daha da büyüttüm */
     line-height: 1.05; /* 0.9'dan 1.05'e çıkarıldı, satır arası açıldı */
   }
   /* Her kelimeyi ayrı satıra zorla */
