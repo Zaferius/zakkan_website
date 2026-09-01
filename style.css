@@ -325,6 +325,8 @@ body {
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
+  appearance: none;
+  background: var(--bg-color);
 }
 
 /* FOOTER */
