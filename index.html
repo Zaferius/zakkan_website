@@ -108,6 +108,15 @@
         <h2>MOBILE GAMES</h2>
       </div>
 
+      <div class="project-item"
+           data-images='["assets/images/pure-ai/screenshot-01.png","assets/images/pure-ai/screenshot-02.png","assets/images/pure-ai/screenshot-03.png","assets/images/pure-ai/screenshot-04.png","assets/images/pure-ai/screenshot-05.png","assets/images/pure-ai/screenshot-06.png","assets/images/pure-ai/screenshot-07.png"]'
+           data-link="https://play.google.com/store/apps/details?id=com.pureai.app&amp;hl=tr"
+           data-title="PURE AI: AI STUDIO"
+           data-desc="An all-in-one AI photo studio for restoring memories, enhancing details, upscaling images to 4K, and creating striking AI portraits.">
+        <span class="num">008</span>
+        <h2>PURE AI</h2>
+      </div>
+
     </div>
   </section>
 
@@ -151,10 +160,14 @@
           <span id="videoCounter">1 / 1</span>
           <button class="modal-btn" id="nextVideo">NEXT →</button>
         </div>
+        <a class="modal-store-link" id="storeLink" href="#" target="_blank" rel="noopener noreferrer">VIEW ON GOOGLE PLAY ↗</a>
       </div>
 
       <div class="modal-video-wrapper">
         <video class="modal-video" id="modalVideo" controls></video>
+        <div class="modal-image-wrapper" id="modalImageWrapper">
+          <img class="modal-image" id="modalImage" src="" alt="" />
+        </div>
         <div class="mobile-grid" id="mobileGrid">
           <!-- Mobile carousel will be injected here -->
           <div class="carousel-container">
@@ -186,6 +199,8 @@
     const items = document.querySelectorAll('.project-item');
     const modal = document.getElementById('videoModal');
     const modalVideo = document.getElementById('modalVideo');
+    const modalImageWrapper = document.getElementById('modalImageWrapper');
+    const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
     const closeBtn = document.querySelector('.modal-close');
@@ -199,8 +214,10 @@
     const mobileTrack = document.getElementById('mobileTrack');
     const mobilePrev = document.getElementById('mobilePrev');
     const mobileNext = document.getElementById('mobileNext');
+    const storeLink = document.getElementById('storeLink');
 
     let currentVideos = [];
+    let currentImages = [];
     let currentIndex = 0;
     let mobileIndex = 0;
 
@@ -242,9 +259,20 @@
     });
 
     function updateModal() {
-      if (currentVideos.length > 0) {
+      if (currentImages.length > 0) {
+        modalVideo.pause();
+        modalVideo.removeAttribute('src');
+        modalVideo.style.display = 'none';
+        mobileGrid.style.display = 'none';
+        modalImageWrapper.style.display = 'block';
+        modalImage.src = currentImages[currentIndex];
+        modalImage.alt = `${modalTitle.innerText} screenshot ${currentIndex + 1}`;
+        counter.innerText = `${currentIndex + 1} / ${currentImages.length}`;
+        document.querySelector('.modal-nav').style.display = currentImages.length > 1 ? 'flex' : 'none';
+      } else if (currentVideos.length > 0) {
         modalVideo.style.display = 'block';
         mobileGrid.style.display = 'none';
+        modalImageWrapper.style.display = 'none';
         modalVideo.src = currentVideos[currentIndex];
         modalVideo.play();
         counter.innerText = `${currentIndex + 1} / ${currentVideos.length}`;
@@ -260,6 +288,7 @@
     items.forEach(item => {
       item.addEventListener('click', () => {
         const videosData = item.getAttribute('data-videos');
+        const imagesData = item.getAttribute('data-images');
         const link = item.getAttribute('data-link');
         const title = item.getAttribute('data-title');
         const desc = item.getAttribute('data-desc');
@@ -268,20 +297,32 @@
         modalTitle.innerText = title;
         modalDesc.innerText = desc;
 
-        if (link) {
-          window.open(link, '_blank', 'noopener,noreferrer');
-        } else if (type === 'mobile-grid') {
+        if (type === 'mobile-grid') {
           modalVideo.style.display = 'none';
+          modalImageWrapper.style.display = 'none';
           mobileGrid.style.display = 'block';
           document.querySelector('.modal-nav').style.display = 'none';
+          storeLink.style.display = 'none';
           mobileIndex = 0;
           updateMobileCarousel();
           modal.classList.add('active');
-        } else if (videosData) {
-          currentVideos = JSON.parse(videosData);
+        } else if (imagesData) {
+          currentImages = JSON.parse(imagesData);
+          currentVideos = [];
           currentIndex = 0;
+          storeLink.href = link;
+          storeLink.style.display = 'inline-flex';
           updateModal();
           modal.classList.add('active');
+        } else if (videosData) {
+          currentVideos = JSON.parse(videosData);
+          currentImages = [];
+          currentIndex = 0;
+          storeLink.style.display = 'none';
+          updateModal();
+          modal.classList.add('active');
+        } else if (link) {
+          window.open(link, '_blank', 'noopener,noreferrer');
         }
       });
       
@@ -295,13 +336,15 @@
 
     prevBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      currentIndex = (currentIndex - 1 + currentVideos.length) % currentVideos.length;
+      const currentMedia = currentImages.length > 0 ? currentImages : currentVideos;
+      currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
       updateModal();
     });
 
     nextBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      currentIndex = (currentIndex + 1) % currentVideos.length;
+      const currentMedia = currentImages.length > 0 ? currentImages : currentVideos;
+      currentIndex = (currentIndex + 1) % currentMedia.length;
       updateModal();
     });
 

@@ -415,6 +415,44 @@ body {
   border-radius: 5px;
 }
 
+.modal-image-wrapper {
+  display: none;
+  width: 100%;
+  min-height: min(68vh, 680px);
+  background: #080b0e;
+  border: 1px solid rgba(170, 235, 255, 0.15);
+  border-radius: 5px;
+  box-shadow: 0 0 50px rgba(170, 235, 255, 0.15);
+  overflow: hidden;
+}
+
+.modal-image {
+  display: block;
+  width: 100%;
+  height: min(68vh, 680px);
+  object-fit: contain;
+}
+
+.modal-store-link {
+  display: none;
+  align-self: flex-start;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ice-color);
+  color: var(--bg-color);
+  background: var(--ice-color);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal-store-link:hover {
+  background: transparent;
+  color: var(--ice-color);
+}
+
 /* CONTACT MODAL */
 .contact-modal {
   position: fixed;
@@ -673,6 +711,11 @@ body {
   }
   .modal-info h3 {
     font-size: 2rem;
+  }
+  .modal-image-wrapper,
+  .modal-image {
+    min-height: 0;
+    height: min(52vh, 560px);
   }
   .modal-close {
     top: 1rem;

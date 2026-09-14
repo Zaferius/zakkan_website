@@ -36,7 +36,7 @@ A high-end, responsive portfolio website built with modern web technologies. It 
 ## 🕹️ Featured Projects
 
 The portfolio showcases a wide range of expertise:
-- **Web / Creative Apps:** PyroArt, FUSE, FacePhantom, ImagePrism.
+- **Web / Creative Apps:** PyroArt, FUSE, FacePhantom, ImagePrism, Pure AI: AI Studio.
 - **PC Games:** The Last Frequency, Scions, Knightbane, Hellevator, Ascension.
 - **Technical Tools:** Easy Grappler 2D (Unity Asset Store).
 - **Mobile Prototypes:** A dedicated collection of 11+ hyper-casual and action mobile games.
