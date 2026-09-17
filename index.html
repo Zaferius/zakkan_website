@@ -13,17 +13,17 @@
   <div class="noise"></div>
   
   <nav class="nav">
-    <div class="nav-center">
-      <p>Zafer AKKAN</p>
+    <div class="nav-left">
+      <a class="nav-about-link nav-scroll-reveal" href="about.html">ABOUT ME ↗</a>
     </div>
     <div class="nav-right">
-      <button class="btn contact-trigger" id="contactTrigger" type="button">
+      <button class="btn contact-trigger nav-scroll-reveal" id="contactTrigger" type="button">
         Contact Me
         <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="logo-btn" id="doomTrigger">IDDQD.</button>
+      <button class="logo-btn nav-scroll-reveal" id="doomTrigger">IDDQD.</button>
     </div>
   </nav>
 
@@ -33,18 +33,12 @@
   </div>
 
   <header class="hero">
-    <h1 class="hero-title">
-      <!-- Desktop: 3 Lines -->
-      <span class="line desktop-line">BUILDING APPS</span>
-      <span class="line desktop-line">WITH </span>
-      <span class="line desktop-line">PRESICION</span>
-      
-      <!-- Mobile: 4 Lines -->
-      <span class="line mobile-line">BUILDING</span>
-      <span class="line mobile-line">APPS</span>
-      <span class="line mobile-line">WITH</span>
-      <span class="line mobile-line">NO LIMITS</span>
-    </h1>
+    <div class="hero-quote">
+      <h1 class="hero-title hero-title--quote">
+        <span class="line quote-line">A chainsaw! Find some meat!</span>
+      </h1>
+      <p class="hero-attribution"><cite>- DOOM 1993</cite></p>
+    </div>
   </header>
 
   <section class="projects" id="projects">
@@ -111,10 +105,23 @@
       <div class="project-item"
            data-images='["assets/images/pure-ai/screenshot-01.png","assets/images/pure-ai/screenshot-02.png","assets/images/pure-ai/screenshot-03.png","assets/images/pure-ai/screenshot-04.png","assets/images/pure-ai/screenshot-05.png","assets/images/pure-ai/screenshot-06.png","assets/images/pure-ai/screenshot-07.png"]'
            data-link="https://play.google.com/store/apps/details?id=com.pureai.app&amp;hl=tr"
+           data-link-label="VIEW ON GOOGLE PLAY ↗"
            data-title="PURE AI: AI STUDIO"
            data-desc="An all-in-one AI photo studio for restoring memories, enhancing details, upscaling images to 4K, and creating striking AI portraits.">
         <span class="num">008</span>
         <h2>PURE AI</h2>
+      </div>
+
+      <div class="project-item"
+           data-videos='["assets/videos/hard-run.mp4"]'
+           data-link="https://www.crazygames.com/game/hard-run"
+           data-link-label="PLAY ON CRAZYGAMES ↗"
+           data-secondary-link="https://www.kongregate.com/en/games/bambamgames/hard-run"
+           data-secondary-link-label="PLAY ON KONGREGATE ↗"
+           data-title="HARD RUN"
+           data-desc="A fast-paced one-button arcade game where every turn counts. Navigate tight courses, collect orbs, unlock new colors, and master increasingly difficult runs.">
+        <span class="num">009</span>
+        <h2>HARD RUN</h2>
       </div>
 
     </div>
@@ -160,7 +167,10 @@
           <span id="videoCounter">1 / 1</span>
           <button class="modal-btn" id="nextVideo">NEXT →</button>
         </div>
-        <a class="modal-store-link" id="storeLink" href="#" target="_blank" rel="noopener noreferrer">VIEW ON GOOGLE PLAY ↗</a>
+        <div class="modal-external-links" id="externalLinks">
+          <a class="modal-store-link" id="storeLink" href="#" target="_blank" rel="noopener noreferrer">VIEW ON GOOGLE PLAY ↗</a>
+          <a class="modal-store-link" id="secondaryStoreLink" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </div>
       </div>
 
       <div class="modal-video-wrapper">
@@ -214,12 +224,29 @@
     const mobileTrack = document.getElementById('mobileTrack');
     const mobilePrev = document.getElementById('mobilePrev');
     const mobileNext = document.getElementById('mobileNext');
+    const externalLinks = document.getElementById('externalLinks');
     const storeLink = document.getElementById('storeLink');
+    const secondaryStoreLink = document.getElementById('secondaryStoreLink');
 
     let currentVideos = [];
     let currentImages = [];
     let currentIndex = 0;
     let mobileIndex = 0;
+
+    function fitModalImage() {
+      if (!modalImage.naturalWidth || !modalImage.naturalHeight) return;
+
+      const mediaArea = modalImageWrapper.parentElement;
+      const isMobile = window.innerWidth <= 768;
+      const maxWidth = mediaArea.clientWidth;
+      const maxHeight = Math.min(window.innerHeight * (isMobile ? 0.48 : 0.68), isMobile ? 460 : 680);
+      const imageRatio = modalImage.naturalWidth / modalImage.naturalHeight;
+      const width = Math.min(maxWidth, maxHeight * imageRatio);
+      const height = width / imageRatio;
+
+      modalImageWrapper.style.width = `${Math.round(width)}px`;
+      modalImageWrapper.style.height = `${Math.round(height)}px`;
+    }
 
     function updateMobileCarousel() {
       const items = document.querySelectorAll('.carousel-item');
@@ -264,7 +291,10 @@
         modalVideo.removeAttribute('src');
         modalVideo.style.display = 'none';
         mobileGrid.style.display = 'none';
-        modalImageWrapper.style.display = 'block';
+        modalImageWrapper.style.display = 'grid';
+        modalImageWrapper.style.removeProperty('width');
+        modalImageWrapper.style.removeProperty('height');
+        modalImage.onload = fitModalImage;
         modalImage.src = currentImages[currentIndex];
         modalImage.alt = `${modalTitle.innerText} screenshot ${currentIndex + 1}`;
         counter.innerText = `${currentIndex + 1} / ${currentImages.length}`;
@@ -290,6 +320,9 @@
         const videosData = item.getAttribute('data-videos');
         const imagesData = item.getAttribute('data-images');
         const link = item.getAttribute('data-link');
+        const linkLabel = item.getAttribute('data-link-label');
+        const secondaryLink = item.getAttribute('data-secondary-link');
+        const secondaryLinkLabel = item.getAttribute('data-secondary-link-label');
         const title = item.getAttribute('data-title');
         const desc = item.getAttribute('data-desc');
         const type = item.getAttribute('data-type');
@@ -302,7 +335,7 @@
           modalImageWrapper.style.display = 'none';
           mobileGrid.style.display = 'block';
           document.querySelector('.modal-nav').style.display = 'none';
-          storeLink.style.display = 'none';
+          externalLinks.style.display = 'none';
           mobileIndex = 0;
           updateMobileCarousel();
           modal.classList.add('active');
@@ -311,14 +344,29 @@
           currentVideos = [];
           currentIndex = 0;
           storeLink.href = link;
+          storeLink.textContent = linkLabel || 'VISIT PROJECT ↗';
           storeLink.style.display = 'inline-flex';
+          storeLink.classList.toggle('is-crazygames', link?.includes('crazygames.com'));
+          secondaryStoreLink.href = secondaryLink || '#';
+          secondaryStoreLink.textContent = secondaryLinkLabel || '';
+          secondaryStoreLink.style.display = secondaryLink ? 'inline-flex' : 'none';
+          secondaryStoreLink.classList.toggle('is-kongregate', secondaryLink?.includes('kongregate.com'));
+          externalLinks.style.display = link || secondaryLink ? 'flex' : 'none';
           updateModal();
           modal.classList.add('active');
         } else if (videosData) {
           currentVideos = JSON.parse(videosData);
           currentImages = [];
           currentIndex = 0;
-          storeLink.style.display = 'none';
+          storeLink.href = link || '#';
+          storeLink.textContent = linkLabel || 'VISIT PROJECT ↗';
+          storeLink.style.display = link ? 'inline-flex' : 'none';
+          storeLink.classList.toggle('is-crazygames', link?.includes('crazygames.com'));
+          secondaryStoreLink.href = secondaryLink || '#';
+          secondaryStoreLink.textContent = secondaryLinkLabel || '';
+          secondaryStoreLink.style.display = secondaryLink ? 'inline-flex' : 'none';
+          secondaryStoreLink.classList.toggle('is-kongregate', secondaryLink?.includes('kongregate.com'));
+          externalLinks.style.display = link || secondaryLink ? 'flex' : 'none';
           updateModal();
           modal.classList.add('active');
         } else if (link) {
@@ -427,10 +475,22 @@
       }
     });
 
-    // Simple scroll animation for lines
-    window.addEventListener('scroll', () => {
+    window.addEventListener('resize', () => {
+      if (currentImages.length > 0 && modal.classList.contains('active')) {
+        fitModalImage();
+      }
+    });
+
+    // Scroll-linked hero motion
+    function updateHeroOnScroll() {
       const scrollPos = window.scrollY;
       const allLines = document.querySelectorAll('.hero-title .line');
+      const quoteTitle = document.querySelector('.hero-title--quote');
+      const quoteAttribution = document.querySelector('.hero-attribution');
+      const navRevealItems = document.querySelectorAll('.nav-scroll-reveal');
+      const fadeDistance = Math.max(window.innerHeight * 0.72, 1);
+      const fadeProgress = Math.min(scrollPos / fadeDistance, 1);
+      const navRevealProgress = Math.min(Math.max((scrollPos - 40) / 220, 0), 1);
       
       // Sadece görünür olan (display !== none) satırları seç
       const visibleLines = Array.from(allLines).filter(line => 
@@ -441,7 +501,19 @@
         const speed = (index % 2 === 0) ? 0.1 : -0.15;
         line.style.transform = `translateX(${scrollPos * speed}px)`;
       });
-    });
+
+      if (quoteTitle) quoteTitle.style.opacity = 1 - fadeProgress;
+      if (quoteAttribution) quoteAttribution.style.opacity = 0.72 * (1 - fadeProgress);
+
+      navRevealItems.forEach((item) => {
+        item.style.opacity = navRevealProgress;
+        item.style.transform = `translateY(${(1 - navRevealProgress) * -10}px)`;
+        item.style.pointerEvents = navRevealProgress > 0.15 && (item.id !== 'doomTrigger' || item.classList.contains('ready')) ? 'auto' : 'none';
+      });
+    }
+
+    window.addEventListener('scroll', updateHeroOnScroll, { passive: true });
+    updateHeroOnScroll();
   </script>
 </body>
 </html>

@@ -9,7 +9,7 @@ A high-end, responsive portfolio website built with modern web technologies. It 
 ## ✨ Features
 
 - **Premium Brutalist Design:** A bold, dark-themed aesthetic with a focus on high-impact typography and tight line heights (`0.95` on desktop, `1.05` on mobile) for a dense, blocky feel.
-- **Device-Specific Hero Layouts:** The "BUILDING APPS WITH NO LIMITS" headline adapts intelligently—presenting a balanced 3-line layout on desktop and a massive, snap-to-left 4-line layout on mobile.
+- **Cinematic Quote Hero:** The portfolio opens with a bold DOOM quote and an italicized attribution that adapts cleanly across screen sizes.
 - **Cinematic Project Showcase:** Side-by-side project information and video previews in a seamless modal experience.
 - **Hybrid Project Navigation:** The projects list now supports both modal video projects and direct external links (`data-link`) that open in a new tab.
 - **Custom Project Glow System:** Project-specific hover effects include a yellow glow for **PyroArt** and animated rainbow glow for **ImagePrism**, while preserving the default red glow style for other items.
@@ -37,6 +37,7 @@ A high-end, responsive portfolio website built with modern web technologies. It 
 
 The portfolio showcases a wide range of expertise:
 - **Web / Creative Apps:** PyroArt, FUSE, FacePhantom, ImagePrism, Pure AI: AI Studio.
+- **Web Games:** Hard Run (live on CrazyGames and Kongregate).
 - **PC Games:** The Last Frequency, Scions, Knightbane, Hellevator, Ascension.
 - **Technical Tools:** Easy Grappler 2D (Unity Asset Store).
 - **Mobile Prototypes:** A dedicated collection of 11+ hyper-casual and action mobile games.
