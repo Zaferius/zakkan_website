@@ -2,7 +2,7 @@
   nixPkgs = ["nginx"]
 
 [phases.build]
-cmds = ["mkdir -p dist && cp -r assets privacy-policy index.html about.html style.css doom.mp4 doom.png Zafer1.png CNAME app-ads.txt dist/"]
+cmds = ["mkdir -p dist && cp -r assets privacy-policy privacy-policy/stickman-survivor-3d/Stickman_Survivor_3D_Privacy_Policy.pdf index.html about.html style.css doom.mp4 doom.png Zafer1.png CNAME app-ads.txt dist/"]
 
 [static]
   directory = "dist"
